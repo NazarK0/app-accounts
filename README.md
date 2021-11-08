@@ -2,6 +2,10 @@
 > In this lesson students should create SPA application using one of the framework from the list: ReactJs, Angular, VueJs
 
 
+
+https://user-images.githubusercontent.com/10829855/140733044-b7180fd0-eebc-4711-af99-3a516f16f55a.mov
+
+
 ### Acceptance criteria 
  - Create the list of account app according to video above
  - Adaptive responsive layout for different devices 
