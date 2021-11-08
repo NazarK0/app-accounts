@@ -2,10 +2,13 @@
 > In this lesson students should create SPA application using one of the framework from the list: ReactJs, Angular, VueJs
 
 
-#### Acceptance criteria 
+### Acceptance criteria 
+ - Create the list of account app according to video above
+ - Adaptive responsive layout for different devices 
+ - Project should have production and development build
+ - Use TypeScript
 
-
-## Getting started
+### Getting started
 
 Install JSON Server
 
@@ -18,7 +21,7 @@ Start JSON Server
 ```bash
 json-server --watch ./db/db.accounts.json
 ```
-## Routes
+### Routes
 
 Based on the previous `./db/db.accounts.json` file, here are all the default routes. You can also add [other routes](#add-custom-routes) using `--routes`.
 
@@ -42,5 +45,13 @@ PUT    /accounts
 PATCH  /accounts
 ```
 
-## Useful links
+### Useful links
+* [учебник по JavaScript](https://learn.javascript.ru/).
+* [json-server](https://www.npmjs.com/package/json-server).
+* [create-react-app](https://www.npmjs.com/package/create-react-app).
+* [Getting started with Angular](https://angular.io/start).
+* [Getting started with ReactJs](https://reactjs.org/docs/getting-started.html).
+* [Getting started with Vue.js](https://v1.vuejs.org/guide/).
+  
+  
 
