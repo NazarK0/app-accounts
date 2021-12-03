@@ -7,8 +7,8 @@ export enum EMessageType {
 export type TMessage = string;
 
 interface IMessageBoxProps {
-  type?: EMessageType,
-  message: TMessage,
+  type?: EMessageType;
+  message: TMessage;
 }
 
 export default IMessageBoxProps;

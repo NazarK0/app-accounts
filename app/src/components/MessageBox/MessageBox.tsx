@@ -20,7 +20,7 @@ const MessageBox = ({ type, message }: IMessageBoxProps ):JSX.Element => {
   }
   
   return (
-    <div className={classNames(s.messageBox, messageTypeClassName)}>
+    <div className={classNames(s.messageBox, s[messageTypeClassName])}>
       {message}
     </div>
   )
