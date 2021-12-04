@@ -1,6 +1,5 @@
 import s from './AccountsTable.module.scss';
-import IAccountsTableProps, { IAccount, EStatusType } from "../../types/AccountsTable.props";
-import classNames from 'classnames';
+import IAccountsTableProps from "../../types/AccountsTable.props";
 import { Link } from 'react-router-dom';
 import StatusBadge from '../StatusBadge';
 

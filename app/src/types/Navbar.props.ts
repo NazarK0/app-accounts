@@ -4,7 +4,7 @@ export enum ENavbarLinks {
 }
 
 interface INavbarProps {
-  active: ENavbarLinks
+  active?: ENavbarLinks
 }
 
 export default INavbarProps;
