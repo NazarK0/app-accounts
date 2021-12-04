@@ -7,15 +7,15 @@ import { EMessageType } from '../../types/MessageBox.props';
 import { ENavbarLinks } from '../../types/Navbar.props';
 import s from './AccountsPage.module.scss';
 
-const accountsListUrl = process.env.REACT_APP_ACCOUNTS_LIST_URL || 'localhost';
+
 
 const AccountsPage = ():JSX.Element => {
+  const accountsListUrl = `${process.env.REACT_APP_DB_URL}/accounts` || 'localhost';
   const[error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [accounts, setAccounts] = useState([]);
   
   useEffect(() => {
-    console.log(accountsListUrl)
     fetch(accountsListUrl)
       .then(res => res.json())
       .then(
@@ -37,7 +37,7 @@ const AccountsPage = ():JSX.Element => {
           setError(error);
         }
       )
-  }, [])
+  }, [accountsListUrl])
   return (
     <div>
       <Navbar active={ENavbarLinks.accounts} />

@@ -4,6 +4,7 @@ services:
     build: ./app
     environment: 
       - NODE_ENV=development
+      - REACT_APP_DB_URL=http://0.0.0.0:3000
     volumes:
       - ./app/src:/app/src
     container_name: app
