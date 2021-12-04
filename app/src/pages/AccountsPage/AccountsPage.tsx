@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import AccountsTable from '../../components/AccountsTable';
 import MessageBox from '../../components/MessageBox';
 import Navbar from '../../components/Navbar';
-import { IAccount } from '../../types/AccountsTable.props';
+import { EStatusType, IAccount } from '../../types/AccountsTable.props';
 import { EMessageType } from '../../types/MessageBox.props';
 import { ENavbarLinks } from '../../types/Navbar.props';
 import s from './AccountsPage.module.scss';
@@ -22,7 +22,14 @@ const AccountsPage = ():JSX.Element => {
   });
 
   const formik = useFormik({
-    initialValues: { email: "" },
+    initialValues: {
+      name: "",
+      account_name: "",
+      email: "",
+      status: EStatusType.disable,
+      start_date: 0,
+      expiration_date: 0, 
+    },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     }
@@ -68,11 +75,46 @@ const AccountsPage = ():JSX.Element => {
             <form onSubmit={formik.handleSubmit}>
               <label htmlFor="email">Email Address</label>
               <input
+                id="name"
+                name="name"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.name}
+              />
+              <input
+                id="account"
+                name="accountName"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.account_name}
+              />
+              <input
+                id="status"
+                name="status"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.status}
+              />
+              <input
                 id="email"
                 name="email"
                 type="email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
+              />
+              <input
+                id="startDate"
+                name="startDate"
+                type="date"
+                onChange={formik.handleChange}
+                value={formik.values.start_date}
+              />
+              <input
+                id="expirationDate"
+                name="expirationDate"
+                type="date"
+                onChange={formik.handleChange}
+                value={formik.values.start_date}
               />
               <button type="submit">Submit</button>
             </form>
