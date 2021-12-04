@@ -75,6 +75,14 @@ body {
       color: $btn-font-light;
       background-color: $tertiary;
     }
+    &.primary {
+      color: $btn-font-light;
+      background-color: $primary;
+    }
+    &.secondary {
+      color: $btn-font-light;
+      background-color: $secondary;
+    }
   }
 
   .container {

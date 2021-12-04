@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
+import { useModal } from 'react-hooks-use-modal';
 import s from './AccountsTable.module.scss';
 import IAccountsTableProps from "../../types/AccountsTable.props";
-import { Link } from 'react-router-dom';
 import StatusBadge from '../StatusBadge';
 
 const AccountsTable = ({ accounts }: IAccountsTableProps ):JSX.Element => {

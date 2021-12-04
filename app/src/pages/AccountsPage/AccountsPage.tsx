@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useModal } from 'react-hooks-use-modal';
+import { useFormik } from "formik";
 import AccountsTable from '../../components/AccountsTable';
 import MessageBox from '../../components/MessageBox';
 import Navbar from '../../components/Navbar';
@@ -7,13 +9,24 @@ import { EMessageType } from '../../types/MessageBox.props';
 import { ENavbarLinks } from '../../types/Navbar.props';
 import s from './AccountsPage.module.scss';
 
-
-
 const AccountsPage = ():JSX.Element => {
   const accountsListUrl = `${process.env.REACT_APP_DB_URL}/accounts` || 'localhost';
   const[error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [accounts, setAccounts] = useState([]);
+  
+
+  const [CreateAccountModal, openModal, closeModal, isOpenModal] = useModal('root', {
+    preventScroll: true,
+    closeOnOverlayClick: false
+  });
+
+  const formik = useFormik({
+    initialValues: { email: "" },
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    }
+  });
   
   useEffect(() => {
     fetch(accountsListUrl)
@@ -44,11 +57,28 @@ const AccountsPage = ():JSX.Element => {
       <div className="container">
         <header className={s.header}>
           <h1>Accouts list</h1>
-          <button className="create">Create account</button>
+          <button onClick={openModal} className="create">Create account</button>
         </header>
         {error && <MessageBox type={EMessageType.error} message={error} />}
         <MessageBox message={`Total: ${accounts.length}`} />
         {isLoaded && <AccountsTable accounts={accounts} />}
+        <CreateAccountModal>
+          <div className={s.modalBlock}>
+            <h2>Create account</h2>
+            <form onSubmit={formik.handleSubmit}>
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+              />
+              <button type="submit">Submit</button>
+            </form>
+            <button className="primary" onClick={closeModal}>Cancel</button>
+          </div>
+        </CreateAccountModal>
       </div>
     </div>
   )
