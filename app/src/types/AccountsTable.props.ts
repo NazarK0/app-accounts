@@ -1,7 +1,7 @@
 export enum EStatusType {
-  active,
-  pending,
-  disable,
+  active= 'Active',
+  pending = 'Pending',
+  disable = 'Disable',
 }
 
 export interface IAccount {

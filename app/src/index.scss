@@ -63,15 +63,15 @@ body {
     margin: 5px;
     border-radius: 3px;
     font-weight: bold;
-    .create {
+    &.create {
       color: $btn-font-light;
       background-color: $primary;
     }
-    .edit {
+    &.edit {
       color: $btn-font-light;
       background-color: $secondary;
     }
-    .delete {
+    &.delete {
       color: $btn-font-light;
       background-color: $tertiary;
     }

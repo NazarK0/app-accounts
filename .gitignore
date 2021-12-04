@@ -12,6 +12,7 @@ storybook-static
 
 # dependencies
 node_modules
+.env
 
 # IDEs and editors
 .idea
