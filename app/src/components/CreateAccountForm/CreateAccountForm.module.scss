@@ -1,0 +1,33 @@
+.modalBlock {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 3px;
+
+  form {
+    position: relative;
+    padding-bottom: 50px;
+
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      &.dates {
+        flex-direction: row;
+        padding: 10px 0;
+      }
+    }
+  }
+
+  .submitBtn {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
+
+  .cancelBtn {
+    position: absolute;
+    bottom: 15px;
+    right: 80px;
+  }
+}

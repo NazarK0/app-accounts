@@ -56,6 +56,32 @@ body {
     }
   }
 
+  label {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  input, textarea, select {
+    font-size: 1.1rem;
+    border-radius: 2px;
+
+    &, &:hover, &:focus, &:active {
+      border: none;
+      outline: none;
+      border-bottom: 2px solid $accent;
+      background-color: transparent;
+    }
+    &:focus {
+      background-color: lighten($accent, 40%);
+    }
+  }
+
+  input, select {
+    height: 30px;
+  }
+
   button, 
   .btn {
     background-color: $primary;
@@ -63,6 +89,7 @@ body {
     margin: 5px;
     border-radius: 3px;
     font-weight: bold;
+    user-select: none;
     &.create {
       color: $btn-font-light;
       background-color: $primary;
@@ -82,6 +109,9 @@ body {
     &.secondary {
       color: $btn-font-light;
       background-color: $secondary;
+    }
+    &:hover, &:focus, &:active {
+      background-color: darken($primary, 20%);
     }
   }
 
