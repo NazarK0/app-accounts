@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   app:
-    build: ./app
+    build: 
+      context: ./app
+      target: development
     environment: 
       - NODE_ENV=development
       - REACT_APP_DB_URL=http://0.0.0.0:3000
