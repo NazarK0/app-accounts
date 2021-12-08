@@ -1,4 +1,4 @@
-import { useFormik, ErrorMessage } from "formik";
+import { useFormik, ErrorMessage, Field, FormikProvider } from "formik";
 import { EStatusType } from '../../types/AccountsTable.props';
 import s from './CreateAccountForm.module.scss';
 import classNames from 'classnames';
@@ -24,7 +24,7 @@ const CreateAccountForm = ({ modal: Modal, closeModal }: ICreateAccounFormProps)
   });
 
   return (
-    <div>
+    <FormikProvider value={formik}>
         <Modal>
           <div className={s.modalBlock}>
             <h1>Create account</h1>
@@ -32,74 +32,62 @@ const CreateAccountForm = ({ modal: Modal, closeModal }: ICreateAccounFormProps)
             <form onSubmit={formik.handleSubmit}>
               <div className={s.formGroup}>
                 <label htmlFor="name">Name*</label>
-                <input
+                <Field
                   id="name"
                   name="name"
                   type="text"
-                  onChange={formik.handleChange}
-                  value={formik.values.name}
                   tabIndex={1}
                 />
-              <ErrorMessage name="name" render={ValidationMessage} />
+              <ErrorMessage name="name" render={(msg)=> <ValidationMessage errorMessage={msg} />} />
               </div>
               <div className={s.formGroup}>
                 <label htmlFor="account">Account*</label>
-                <input
+                <Field
                   id="account"
                   name="accountName"
                   type="text"
-                  onChange={formik.handleChange}
-                  value={formik.values.account_name}
                   tabIndex={2}
                 />
-              <ErrorMessage name="account" render={ValidationMessage} />
+              <ErrorMessage name="name" render={(msg) => <ValidationMessage errorMessage={msg} />} />
               </div>
               <div className={s.formGroup}>
                 <label htmlFor="status">Status</label>
-                <select id="status"
+                <Field as="select" id="status"
                   name="status"
-                  onChange={formik.handleChange}
-                  value={formik.values.status}
                   tabIndex={3}>
                   <StatusOptions />
-                </select>
-              <ErrorMessage name="status" render={ValidationMessage} />
+                </Field>
+              <ErrorMessage name="name" render={(msg) => <ValidationMessage errorMessage={msg} />} />
               </div>
               <div className={s.formGroup}>
                 <label htmlFor="Email*">Name*</label>
-                <input
+                <Field
                   id="email"
                   name="email"
                   type="email"
-                  onChange={formik.handleChange}
-                  value={formik.values.email}
                   tabIndex={4}
                 />
               </div>
               <div className={classNames(s.formGroup, s.dates)}>
                 <div className={s.formGroup}>
                   <label htmlFor="startDate">Start date</label>
-                  <input
+                  <Field
                     id="startDate"
                     name="startDate"
                     type="date"
-                    onChange={formik.handleChange}
-                    value={formik.values.start_date}
                     tabIndex={5}
                   />
-                <ErrorMessage name="startDate" render={ValidationMessage} />
+                <ErrorMessage name="name" render={(msg) => <ValidationMessage errorMessage={msg} />} />
                 </div>
                 <div className={s.formGroup}>
                   <label htmlFor="expirationDate">Expiration date</label>
-                  <input
+                  <Field
                     id="expirationDate"
                     name="expirationDate"
                     type="date"
-                    onChange={formik.handleChange}
-                    value={formik.values.expiration_date}
                     tabIndex={6}
                   />
-                <ErrorMessage name="expirationDate" render={ValidationMessage} />
+                <ErrorMessage name="name" render={(msg) => <ValidationMessage errorMessage={msg} />} />
                 </div>
               </div>
               <hr />
@@ -108,7 +96,7 @@ const CreateAccountForm = ({ modal: Modal, closeModal }: ICreateAccounFormProps)
             <button className={classNames(s.cancelBtn, "secondary")} onClick={closeModal} tabIndex={8}>Cancel</button>
           </div>
         </Modal>
-    </div>
+    </FormikProvider>
   )
 }
 

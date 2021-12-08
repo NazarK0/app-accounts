@@ -111,7 +111,7 @@ body {
       background-color: $secondary;
     }
     &:hover, &:focus, &:active {
-      background-color: darken($primary, 20%);
+      background-color: darken($accent, 5%);
     }
   }
 
