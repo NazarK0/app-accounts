@@ -2,11 +2,11 @@ import * as yup from "yup";
 
 const CreateAccountSchema = yup.object().shape({
   name: yup.string().required("Please enter name"),
-  account_name: yup.string().required("Please enter account name"),
-  email: yup.string().email("Please enter e-mail"),
+  accountName: yup.string().required("Please enter account name"),
+  email: yup.string().required("Please enter e-mail").email(),
   status: yup.string().required("Please select a status").oneOf(["Active", "Pending", "Disable"]),
-  start_date: yup.date().default(() => new Date()),
-  expiration_date: yup.date().default(() => new Date()),
+  startDate: yup.date().default(() => new Date()),
+  expirationDate: yup.date().default(() => new Date()),
 });
 
 // // check validity

@@ -1,5 +1,4 @@
-import { ErrorMessageProps } from "formik";
-import React,{ FC } from "react";
+import { FC } from "react";
 import IValidationErrorProps from "../../types/ValidationError.props";
 
 const ValidationMessage: FC<IValidationErrorProps> = ({errorMessage}) => (
